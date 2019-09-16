@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+struct Player{
+  
+  string name;
+  int number;
+  int age;
+};
+
+ 
+
+
+
+
+int main() {
+  string name[5] = {"Amos","Yancy","Tim","Kim","Malia"}; 
+  int number[5] = {45,10,23,27,99}; 
+  int age[5] = {23,18,30,17,21};
+  Player players[5];
+  for(int i=0;i<5;i++){
+    players[i].number = number[i];
+    players[i].age = age[i];
+    players[i].name = name[i];
+    
+  }
+  int n = 5;
+  for (int i = 0; i < n-1; i++)     
+      
+    // Last i elements are already in place  
+    for (int j = 0; j < n-i-1; j++)  
+        if (players[j].age > players[j+1].age) {
+          string temp = players[j+1].name;
+          int temp1 = players[j+1].number;
+          int temp3 = players[j+1].age;
+          
+          players[j+1].name = players[j].name;
+          players[j+1].number = players[j].number;
+          players[j+1].age = players[j].age;
+          
+          players[j].name = temp;
+          players[j].number =temp1;
+          players[j].age = temp3;
+          
+        }
+      for (int i=0;i<5;i++){
+        cout<< players[i].name <<"'s jersey number is "<< players[i].number <<" and his/her age is " 
+        << players[i].age<<endl;
+      }
+          
+  
+}
